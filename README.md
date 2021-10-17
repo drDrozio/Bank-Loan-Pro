@@ -61,13 +61,13 @@ The following models were used (shown along with confusion matrix evaluation) :-
 
 Accuracy = 81.49%
 
-![plot](lgb1.jpg)
+![plot](./lgb1.JPG)
 
 2 - XGB
 
 Accuracy = 83.07%
 
-![plot](xgb1.jpg)
+![plot](./xgb1.JPG)
 
 3 - 
 
