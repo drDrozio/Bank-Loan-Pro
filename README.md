@@ -43,13 +43,18 @@ The missing values were replaced with mode of the column. Only the 'Loan Amount'
 #### Handling Class Imbalance
 Class imbalance was handled using the SMOTE technique.
 
+### New Features Imputation
+Further few relevant features were added to the feature list :- 
+#Total income
+TotalIncome = ApplicantIncome  + CoapplicantIncome
+ 
+#Monthly income
+monthly_amount = LoanAmount/Loan_Amount_Term
+
+#The income left after the monthly amount has been paid
+left_income = TotalIncome - monthly_amount*1000
 
 
-#### Scaling
-The data was scaled using the Standard Scalar from Scikit learn library.
-
-### Decomposition
-PCA was applied but no such improvement was found in the model performance with PCA. Therefore not used.
 
 ### Model Training
 
@@ -57,19 +62,47 @@ Multiple Machine Learning Models were trained to predict the class of the wine b
 
 The following models were used (shown along with confusion matrix evaluation) :-
 
-1 - LGB
+1 - LightGB Model
 
 Accuracy = 81.49%
 
 ![plot](./lgb1.JPG)
 
-2 - XGB
+2 - XGBoost Model
 
 Accuracy = 83.07%
 
 ![plot](./xgb1.JPG)
 
-3 - 
+3 - LightGB Model with KFold (K=5)
+
+Accuracy = 86.26%
+
+![plot](./lgb2.JPG)
+
+4 - XGBoost Model with KFold (K=5)
+
+Accuracy = 83.89%
+
+![plot](./xgb2.JPG)
+
+5 - Ensembling 
+
+Expression used -> y_pred = alpha*(y_xgb_kfold) + (1 - alpha)*(y_lgb_kfold)
+
+where y_xgb_kfold is y_pred from model 3 and y_lgb_kfold is y_pred from model 4
+
+alpha selected -> 0.5
+
+Accuracy = 83.89%
+
+![plot](./en.JPG)
+
+Therefore ensemble model provides best confusion metrics for model training. Hence selected.
+
+
+
+
 
 | Model with Hyperparameters                                               | Score             | Score w Balancing |
 | ------------------------------------------------------------------------ | ----------------- |------------------ |
