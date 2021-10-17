@@ -125,5 +125,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = ( os.path.join(BASE_DIR,'static'), )
 
 # print(STATIC_ROOT)
-# #Our models folder 
-# MODELS = os.path.join(BASE_DIR, 'main/model_tools')
+
+#Our models folder 
+MODELS = os.path.join(BASE_DIR, 'main/model_tools')
