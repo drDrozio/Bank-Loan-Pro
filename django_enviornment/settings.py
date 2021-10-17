@@ -25,7 +25,7 @@ SECRET_KEY = ')4)ua(5^ik1r%_w%*#e^-i9k1v)40#r^=zcx^xy4h^rewk(x_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bank-loan-pro.herokuapp.com','http://127.0.0.1:8000/']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
