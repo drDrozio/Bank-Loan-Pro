@@ -1,51 +1,48 @@
 # Bank Loan Approval Predictor
 This application predicts the whether the candidate is applicable of getting loan from the bank based on the following details : - 
-1 - fixed acidity
 
-2 - volatile acidity
+1 - Applicant Income
 
-3 - citric acid
+2 - Co Applicant Income
 
-4 - residual sugar
+3 - Loan Amount
 
-5 - chlorides
+4 - Loan Amount Term
 
-6 - free sulfur dioxide
+5 - Credit History
 
-7 - total sulfur dioxide
+6 - No. of Dependents
 
-8 - density
+7 - Gender
 
-9 - pH
+8 - Marital Status
 
-10 - sulphates
+9 - Education
 
-11 - alcohol
+10 - Employment Type
 
-Output variable (based on sensory data):
-1 - quality (score between 3 and 8 inclusive)
+11 - Property Location Type
+
+Output variable :
+1 - Loan Approval Status (Approved/Rejected)
 
 ## Application Link
 
-Use the [link](https://red-wine-qlty-pred.herokuapp.com/winequality/) to run the web application on Browser.
+Use the [link](https://bank-loan-pro.herokuapp.com/) to run the web application on Browser.
 
 ## Methodology
 ### Dataset
-The Dataset is selected from kaggle and can be seen in the ml_models folder as 'winequality-red.csv' . The data is one with high class imbalance. The dataset is biased towards class 5 and 6.
+The Dataset is selected from kaggle.
 
 ![plot](./wine_app/ml_models/CountPlot.png)
 
 ### Data and Feature Engineering
+#### Handling Missing Values
+The missing values were replaced with mode of the column. Only the 'Loan Amount' column was imputed with median value so as to take into account the outliers too. 
+
 #### Handling Class Imbalance
-The imbalance was handled by the following self devised technique :-
-Multiply the reciprocal of value counts of the class to which the datapoint belongs to in the dataset.
+Class imbalance was handled using the SMOTE technique.
 
-Weight of class (W[c]) = 1/(frequency of class c).
-
-X'[i] = W[c]*X[i] (for Y[i]==c).
-where X[i] is a row vector of independent varaibles, Y[i] is the target dependent variable and W[c] is a scalar computed above.
-
-This operation improved the model performance drastically which can be seen in the following model performances done with comparative study.
 
 
 #### Scaling
@@ -55,7 +52,24 @@ The data was scaled using the Standard Scalar from Scikit learn library.
 PCA was applied but no such improvement was found in the model performance with PCA. Therefore not used.
 
 ### Model Training
-Multiple Machine Learning Models were trained to predict the class of the wine being tested using the above mentioned features. Hyperparameter tuning was done to obtain optimum results by iterating over parameters.
+
+Multiple Machine Learning Models were trained to predict the class of the wine being tested using the above mentioned features. 
+
+The following models were used (shown along with confusion matrix evaluation) :-
+
+1 - LGB
+
+Accuracy = 81.49%
+
+![plot](./lgb1.jpeg)
+
+2 - XGB
+
+Accuracy = 83.07%
+
+![plot](./xgb1.jpeg)
+
+3 - 
 
 | Model with Hyperparameters                                               | Score             | Score w Balancing |
 | ------------------------------------------------------------------------ | ----------------- |------------------ |
