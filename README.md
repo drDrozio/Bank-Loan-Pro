@@ -98,39 +98,22 @@ Accuracy = 83.89%
 
 ![plot](./en.JPG)
 
-Therefore ensemble model provides best confusion metrics for model training. Hence selected.
-
-
-
-
-
-| Model with Hyperparameters                                               | Score             | Score w Balancing |
-| ------------------------------------------------------------------------ | ----------------- |------------------ |
-| Logistic Regression (Unoptimized)                                        | (60.32%, 56.44%)  | (44.07%, 41.48%)  |
-| Logistic Regression (C=1, multiclass='ovr',solver='newton-cg')           | (60.60%, 56.63%)  | (69.56%, 68.37%)  |
-| Logistic Regression (C=36, multiclass='multinomial',solver='newton-cg')  | (62.46%, 57.20%)  | (92.43%, 92.04%)  |
-| Support Vector Classifier (kernel='poly',C=100000)                       | (30.53%, 33.34%)  | (97.39%, 96.40%)  |
-| Support Vector Classifier (kernel='linear',C=1)                          | (60.13%, 55.87%)  | (79.74%, 42.23%)  |
-
-Therefore it was seen that balancing operation improved model performance. Hence further hyperparameter tuning was done with graphical study to obtain optimum parameters for Support Vector Classifier. 
-
-Best fit model -> SVC(kernel='linear',C=100,decision_function_shape='ovo',gamma=0.01)
-with score -> (99.72%, 99.81%)
+Therefore ensemble model provides best confusion metrics with accuracy also being 83.89%. Hence selected.
 
 
 ### Application Deployment
 The model is deployed using Django framework with templating for basic frontend. The Django application is deployed on Heroku.
 
-Flowchart of application process :-
-
-![plot](./Flowchart.png)
 
 ### Screenshots
 
-![plot](./Opening1.PNG)
+Input Form Page
 
-![plot](./Opening2.PNG)
+![plot](./ss1.JPG)
 
-![plot](./Opening3.PNG)
+![plot](./ss2.JPG)
 
-![plot](./Result.PNG)
+Output Page
+
+![plot](./ss3.JPG)
+
